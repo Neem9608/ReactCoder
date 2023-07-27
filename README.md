@@ -47,3 +47,6 @@ Este componente muestra una lista de productos disponibles para su compra. Utili
 - `CartItemCounter.js`: Componente que permite aumentar o disminuir la cantidad de un producto en el carrito.
 - `CartTotal.js`: Componente que muestra el total a pagar en el carrito de compras.
 - `TotalItems.js`: Componente que muestra la cantidad total de elementos en el carrito de compras en la barra de navegación.
+### Feedback
+Aguardo su buen feedback
+- `preEntrega2` Escobar
