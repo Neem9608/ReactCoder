@@ -1,27 +1,57 @@
+// products.js
 import { useContext, useState, useEffect } from "react";
 import { dataContext } from "../Context/DataContext";
-import axios from "axios";
-
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 import "./Products.css";
 
+import Swal from "sweetalert2";
+
 const Products = () => {
-  const [data, setData] = useState([]);
+  const [products, setProducts] = useState([]);
+
   const { buyProducts } = useContext(dataContext);
 
+  const fetchProducts = async () => {
+    const productsRef = collection(db, "products");
+    const querySnapshot = await getDocs(productsRef);
+
+    const productsData = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    setProducts(productsData);
+  };
+
   useEffect(() => {
-    axios("data.json").then((res) => setData(res.data));
+    fetchProducts();
   }, []);
 
-  return data.map((product) => {
-    return (
-      <div className='card' key={product.id}>
-        <img src={product.img} alt='img-product-card' />
-        <h3>{product.name}</h3>
-        <h4>{product.price}$</h4>
-        <button onClick={() => buyProducts(product)}>buy</button>
-      </div>
-    );
-  });
+  const buyProduct = (product) => {
+    buyProducts(product);
+
+    Swal.fire({
+      title: "Éxito",
+      text: "Producto agregado",
+      icon: "success",
+    });
+  };
+
+  return (
+    <>
+      {products.map((product) => (
+        <div className="card" key={product.id}>
+          <img src={product.img} alt={`${product.name} book cover`} />
+
+          <h3>{product.name}</h3>
+          <p>{product.price}</p>
+
+          <button onClick={() => buyProduct(product)}>Comprar</button>
+        </div>
+      ))}
+    </>
+  );
 };
 
 export default Products;

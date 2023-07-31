@@ -1,13 +1,20 @@
+// CartTotal.jsx
+
 import { useContext } from "react";
 import { dataContext } from "../Context/DataContext";
 
 const CartTotal = () => {
   const { cart } = useContext(dataContext);
+  const total = cart.reduce((acc, item) => {
+    const price = parseFloat(item.price);
 
-  const total = cart.reduce((acc, el) => acc + el.price * el.quanty, 0);
+    if (isNaN(price)) return acc;
+    return acc + price * item.quantity;
+  }, 0);
+
   return (
-    <div className='cartTotal'>
-      <h3>total a pagar: {total} $</h3>
+    <div className="cartTotal">
+      <h3>Total: {total.toFixed(2)}</h3>
     </div>
   );
 };
