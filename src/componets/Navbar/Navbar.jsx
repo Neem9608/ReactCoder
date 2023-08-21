@@ -1,3 +1,4 @@
+// navBar
 import { useContext } from "react";
 import { dataContext } from "../Context/DataContext";
 import { Link } from "react-router-dom";

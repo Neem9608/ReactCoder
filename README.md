@@ -33,12 +33,12 @@ Esto iniciará la aplicación en modo de desarrollo. Abre [http://localhost:3000
 La aplicación Books Shop tiene las siguientes funcionalidades:
 
 
-1. Visualización de libros: Los usuarios pueden ver una lista de libros disponibles en la tienda. Cada libro muestra su nombre, autor, precio y una imagen de su portada.
+1. Catálogo de Libros: Los usuarios pueden ver una lista de libros disponibles en el catálogo de la librería.
 2. Agregar al carrito: Los usuarios pueden agregar libros al carrito de compras haciendo clic en el botón "Comprar" en la tarjeta de cada libro. Si un libro ya está en el carrito, la cantidad se actualizará.
 3. Eliminar del carrito: Los usuarios pueden eliminar libros del carrito de compras haciendo clic en el botón "Eliminar" en la lista del carrito. Aparecerá una confirmación antes de eliminar el libro.
-4. Cantidad en el carrito: En la barra de navegación, el icono de carrito muestra la cantidad total de libros agregados al carrito. Si el carrito está vacío, la cantidad no se mostrará.
-5. Total de compra: En el carrito de compras, se muestra el total a pagar por todos los libros agregados. El total se actualiza automáticamente cuando se agrega o elimina un libro del carrito.
-6. Cantidad ajustable: La cantidad de libros en el carrito se puede ajustar utilizando los botones "+" y "-" junto a cada libro. La cantidad mínima permitida es 1
+4. Los usuarios pueden ajustar la cantidad de cada libro en el carrito antes de completar la compra.
+5. `Checkout`: El carrito muestra el detalle de los productos seleccionados, incluyendo la imagen, nombre, cantidad, precio unitario y total. También muestra el monto total de la compra.
+6. Confirmación de Compra: Al completar la compra, se muestra una ventana emergente con un resumen de los productos comprados y el monto total.
 7. Mensajes de confirmación: Cuando se agrega un libro al carrito, se muestra un mensaje de éxito. Del mismo modo, cuando se elimina un libro del carrito, se muestra un mensaje de confirmación.
 7. Datos de prueba: El proyecto incluye un script para agregar productos de prueba a la base de datos de Firebase. Esto permite tener una lista de libros para probar la funcionalidad del carrito de compras.
 
@@ -69,15 +69,17 @@ Este es el componente principal de la aplicación y define las rutas principales
 
 Representa la página de inicio de la tienda de libros. Muestra una barra de navegación (`Navbar.js`) y un banner promocional (`Banner.js`). También muestra una lista de productos utilizando el componente `Products.js`.
 
-### `CartContent.js`
+### `Checkout`
 
-Representa la página del carrito de compras. Muestra una barra de navegación (`Navbar.js`) y los elementos del carrito utilizando el componente `CartElements.js`. También muestra el total a pagar utilizando el componente `CartTotal.js`.
+1. Se muestra el detalle de la compra con cada producto en el carrito.
+2. El total se calcula y muestra correctamente.
+3. El botón "Completar Compra" está presente.
 
 ### `Navbar.js`
 
 Es la barra de navegación superior de la aplicación. Contiene un enlace al carrito de compras (`CartContent.js`) y muestra la cantidad de elementos en el carrito utilizando el componente `TotalItems.js`.
 
-### `Products.js`
+### ` itemListContainer(products)`
 
 Muestra una lista de productos disponibles para su compra. Utiliza el contexto de datos global para agregar productos al carrito de compras al hacer clic en el botón "Comprar". Cada producto se muestra como un componente `ProductCard.js`.
 

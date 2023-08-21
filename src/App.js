@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import addProductsToFirestore from "./addProductsToFirestore";
 import Home from "./componets/Home/Home";
-import CartContent from "./componets/CartContent/CartContent";
+import CartContent from "./componets/CartContent/Checkout";
 import DataProvider from "./componets/Context/DataContext";
 async function initializeFirebase(){
 try {

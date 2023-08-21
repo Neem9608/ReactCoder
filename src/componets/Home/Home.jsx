@@ -1,6 +1,7 @@
+// home.jsx
 import Navbar from "../Navbar/Navbar";
 import Banner from "../Banner/Banner";
-import Products from "../Products/Products";
+import Products from "../Products/itemListContainer";
 
 const Home = () => {
   return (

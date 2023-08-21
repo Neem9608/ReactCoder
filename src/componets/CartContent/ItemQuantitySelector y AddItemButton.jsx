@@ -1,4 +1,4 @@
-// CartItemCounter.jsx
+// ItemQuantitySelector y AddItemButton
 import { useContext } from "react";
 import {  dataContext } from "../Context/DataContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

@@ -1,10 +1,10 @@
-// products.js
+// itemListContainer.jsx
 import { useContext, useState, useEffect } from "react";
 import { dataContext } from "../Context/DataContext";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
+import Description from "../Description/Description";
 import "./Products.css";
-
 import Swal from "sweetalert2";
 
 const Products = () => {
@@ -43,8 +43,11 @@ const Products = () => {
       {products.map((product) => (
         <div className="card" key={product.id}>
           <img src={product.img} alt={`${product.name} book cover`} />
-
-          <h3>{product.name}</h3>
+          <Description 
+            name={product.name}
+            author={product.author}
+            description={product.description}
+          />          
           <p>{product.price}</p>
 
           <button onClick={() => buyProduct(product)}>Comprar</button>

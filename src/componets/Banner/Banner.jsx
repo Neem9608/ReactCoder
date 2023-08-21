@@ -1,4 +1,4 @@
-// banner
+// banner.jsx
 import "./Banner.css";
 const Banner = () => {
   return (

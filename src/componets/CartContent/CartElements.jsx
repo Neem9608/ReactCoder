@@ -1,8 +1,8 @@
 // CartElements.jsx
 import { useContext } from "react";
 import { dataContext } from "../Context/DataContext";
-import CartItemCounter from "./CartItemCounter";
-
+import CartItemCounter from "./ItemQuantitySelector y AddItemButton";
+import Description from "../Description/Description";
 // Import from SweetAlert2
 import Swal from "sweetalert2";
 
@@ -26,12 +26,16 @@ const CartElements = () => {
 
   return (
     <>
+    <h2 className="cartTotal">Detalles  de la compra</h2>
       {cart.map((product) => (
         <div className="cartContent" key={product.id}>
           <img src={product.img} alt="product-card" />
 
-          <h3 className="name">{product.name}</h3>
-
+          <Description
+          name={product.name}
+          author={product.author}
+          description={product.description}
+        />
           <CartItemCounter product={product} />
 
           <h4 className="price">{product.price * product.quantity}</h4>
