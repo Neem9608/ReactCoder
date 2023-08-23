@@ -1,9 +1,10 @@
 // app.js
 import { db } from "./firebaseConfig"; // Importa el objeto de la base de datos
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter , Routes, Route } from "react-router-dom";
 import addProductsToFirestore from "./addProductsToFirestore";
 import Home from "./componets/Home/Home";
+import BookDetails from "./componets/BookDetails/BookDetails"; // Asegúrate de importar el componente BookDetails
 import CartContent from "./componets/CartContent/Checkout";
 import DataProvider from "./componets/Context/DataContext";
 async function initializeFirebase(){
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<CartContent />} />
+          <Route path="/book/:bookUrl" element={<BookDetails />} />
         </Routes>
       </BrowserRouter>
     </DataProvider>

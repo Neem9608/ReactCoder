@@ -4,15 +4,18 @@
       "name": "On The Road",
       "author": "Jack Kerouac",
       "description": "On the Road is a 1957 novel by American writer Jack Kerouac, based on the travels of Kerouac and his friends across the United States.",
+      "url": "on-the-road",
       "price": 10,
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStI02j-ucMvVOARGDREfySnDtTOwbqEm6iK_s8OUUoruf71ix1HirXatizzIeq6L-DhxA&usqp=CAU",
       "quanty": 1
+      
     },
     {
        
       "name": "The Subterraneans",
       "author": "Jack Kerouac",
       "description": "Centering around the tempestuous romance and breakup of Leo Percepied and Mardou Fox—two denizens of the 1950s San Francisco underground—The Subterraneans is a tale of dark alleys and smoky rooms, of artists, visionaries, and adventurers existing outside mainstream America's field of vision.",
+      "url": "The-Subterraneans",
       "price": 20,
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzgELTZnFmSBowVS4Q6h57GYVz4VD3DDk9sapCkwts02L0YeCR4flTlJ3p7E3RTaULCYM&usqp=CAU",
       "quanty": 1
@@ -23,6 +26,7 @@
       "name": "Indian Journals",
       "author": "Allen Ginsberg",
       "description": "Indian Journals: March 1962 – May 1963 is a travel diary by American poet Allen Ginsberg, first published by Dave Haselwood Books and City Lights Books in 1970.",
+      "url": "Indian-Journals",
       "price": 27,
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt3Cn2O2dmrbuSPOvFv0NsDuYMvaq8d-ZMHfSRmyg2HPrimXtxpb7bpbuibTwhKWAgpKc&usqp=CAU",
       "quanty": 1
@@ -32,6 +36,7 @@
       "name": "Iron Horse",
       "author": "Allen Ginsberg",
       "description": "Iron Horse is a poem written by Allen Ginsberg. It is an important part of his The Fall of America: Poems of These States sequence of poems written in the mid-to-late 1960s. Iron Horse was published in January 1973 by Coach House Press of Toronto, Canada.",
+      "url": "Iron-Horse",
       "price": 18,
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnp4ECiLiU5FbFwCE5iGsL8_2rFKGtkkaLsQ&usqp=CAU",
       "quanty": 1

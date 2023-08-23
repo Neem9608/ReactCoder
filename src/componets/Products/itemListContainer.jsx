@@ -4,6 +4,9 @@ import { dataContext } from "../Context/DataContext";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import Description from "../Description/Description";
+import { Link } from "react-router-dom"; // Importa Link
+
+
 import "./Products.css";
 import Swal from "sweetalert2";
 
@@ -41,7 +44,9 @@ const Products = () => {
   return (
     <>
       {products.map((product) => (
-        <div className="card" key={product.id}>
+        
+        <Link to={`/book/${product.url}`}>
+        <div className="card"> key={product.id}
           <img src={product.img} alt={`${product.name} book cover`} />
           <Description 
             name={product.name}
@@ -52,6 +57,7 @@ const Products = () => {
 
           <button onClick={() => buyProduct(product)}>Comprar</button>
         </div>
+        </Link>
       ))}
     </>
   );
