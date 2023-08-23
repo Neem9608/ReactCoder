@@ -1,5 +1,4 @@
 // addProductsToFirestore.js
-
 import { collection, setDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 

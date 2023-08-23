@@ -19,6 +19,7 @@ try {
 function App() {
   useEffect(() => {
     initializeFirebase();
+    addProductsToFirestore();
   }, []);
 
   return (

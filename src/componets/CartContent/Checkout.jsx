@@ -3,7 +3,15 @@ import { dataContext } from "../Context/DataContext";
 import CartElements from "./CartElements";
 import CartTotal from "./CartTotal";
 import Navbar from "../Navbar/Navbar";
-import { Container, Paper, Typography, TextField, Button, Modal, Box } from "@mui/material"; // Importa los componentes de Material-UI
+import {
+  Container,
+  Paper,
+  Typography,
+  TextField,
+  Button,
+  Modal,
+  Box,
+} from "@mui/material"; // Importa los componentes de Material-UI
 import Swal from "sweetalert2";
 import "./CartContent.css";
 
@@ -25,7 +33,10 @@ const Checkout = () => {
       });
     } else if (formData.paymentDetails) {
       // Calcular el total de la compra
-      const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+      const total = cart.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      );
 
       // Mostrar el modal con los detalles de la compra
       setShowModal(true);
@@ -48,13 +59,13 @@ const Checkout = () => {
       contactInfo: "",
       paymentDetails: "",
     });
-     // Mostrar la alerta de compra exitosa
-     Swal.fire({
+    // Mostrar la alerta de compra exitosa
+    Swal.fire({
       title: "¡Compra Exitosa!",
       text: "Gracias por tu compra. ¡Disfruta tus libros!",
       icon: "success",
       confirmButtonText: "Cerrar",
-    }); 
+    });
   };
 
   return (
@@ -100,17 +111,36 @@ const Checkout = () => {
         onClose={closeModal}
         aria-labelledby="detalle-compra-modal-title"
       >
-        <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 500, bgcolor: "background.paper", boxShadow: 24, p: 6 }}>
-          <Typography id="detalle-compra-modal-title" variant="h5" component="h2">
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 500,
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 6,
+          }}
+        >
+          <Typography
+            id="detalle-compra-modal-title"
+            variant="h5"
+            component="h2"
+          >
             Detalles de la Compra
           </Typography>
           {cart.map((item) => (
             <Typography key={item.id} variant="body2">
-              {item.name} - Cantidad: {item.quantity} - Precio Unitario: ${item.price.toFixed(2)}
+              {item.name} - Cantidad: {item.quantity} - Precio Unitario: $
+              {item.price.toFixed(2)}
             </Typography>
           ))}
           <Typography variant="body2">
-            Total: ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
+            Total: $
+            {cart
+              .reduce((acc, item) => acc + item.price * item.quantity, 0)
+              .toFixed(2)}
           </Typography>
           <Button onClick={closeModal}>Finalizar</Button>
         </Box>

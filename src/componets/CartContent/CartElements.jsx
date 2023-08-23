@@ -34,7 +34,6 @@ const CartElements = () => {
           <Description
           name={product.name}
           author={product.author}
-          description={product.description}
         />
           <CartItemCounter product={product} />
 

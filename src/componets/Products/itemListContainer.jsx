@@ -6,13 +6,11 @@ import { db } from "../../firebaseConfig";
 import Description from "../Description/Description";
 import { Link } from "react-router-dom"; // Importa Link
 
-
 import "./Products.css";
 import Swal from "sweetalert2";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-
   const { buyProducts } = useContext(dataContext);
 
   const fetchProducts = async () => {
@@ -44,19 +42,18 @@ const Products = () => {
   return (
     <>
       {products.map((product) => (
-        
-        <Link to={`/book/${product.url}`}>
-        <div className="card"> key={product.id}
-          <img src={product.img} alt={`${product.name} book cover`} />
-          <Description 
-            name={product.name}
-            author={product.author}
-            description={product.description}
-          />          
-          <p>{product.price}</p>
+        <Link to={`/book/${product.url}`} key={product.id}>
+          <div className="card">
+            <img src={product.img} alt={`${product.name} book cover`} />
+            <Description
+              name={product.name}
+              author={product.author}
+              description={product.description}
+            />
+            <p>{product.price}</p>
 
-          <button onClick={() => buyProduct(product)}>Comprar</button>
-        </div>
+            <button onClick={() => buyProduct(product)}>Comprar</button>
+          </div>
         </Link>
       ))}
     </>

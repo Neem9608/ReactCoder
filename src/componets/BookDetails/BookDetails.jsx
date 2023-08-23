@@ -1,13 +1,18 @@
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore"; // Agrega esta línea para importar la función 'query'
 import { db } from "../../firebaseConfig";
-import React, { useState, useEffect } from "react";
-// import "./BookDetails.css"; // Asegúrate de tener el archivo de estilos correspondiente
+import { dataContext} from "../Context/DataContext"; // Asegúrate de importar el contexto del carrito
+import Navbar from "../Navbar/Navbar";
+import Description from "../Description/Description";
+import "./BookDetails.css"; // Asegúrate de tener el archivo de estilos correspondiente
 
 const BookDetails = () => {
   const { bookUrl } = useParams(); 
-
+  const { buyProducts } = useContext(dataContext); // Obtiene la función buyProducts del contexto
   const [book, setBook] = useState(null);
+  // const [quantity, setQuantity] = useState(1); // Estado para la cantidad
+
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -30,14 +35,27 @@ const BookDetails = () => {
   }
 
   return (
+    <div> <Navbar />
     <div className="book-details">
+    
       <h2>{book.name}</h2>
       <img src={book.img} alt={`${book.name} book cover`} />
-      <p>Autor: {book.author}</p>
-      <p>Precio: {book.price}</p>
-      <p>Descripción: {book.description}</p>
+      <Description
+          author={book.author}
+          description={book.description}
+        />
       {/* Agrega otros detalles del libro aquí si es necesario */}
-    </div>
+    
+          {/* <div className="quantity">
+          <button onClick={() => setQuantity(quantity - 1)} disabled={quantity === 1}>
+            -
+          </button>
+          <span>{quantity}</span>
+          <button onClick={() => setQuantity(quantity + 1)}>+</button>
+        </div> */}
+        <button onClick={() => buyProducts(book)}>Agregar al carrito</button>
+      </div>
+      </div>
   );
 };
 

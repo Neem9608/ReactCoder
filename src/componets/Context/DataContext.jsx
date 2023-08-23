@@ -2,8 +2,9 @@
 import { createContext, useState } from "react";
 export const dataContext = createContext();
 
-const DataProvider = ({ children }) => {
+export const DataProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+
   const buyProducts = (product) => {
     let price = parseFloat(product.price);
 
@@ -36,4 +37,3 @@ const DataProvider = ({ children }) => {
 };
 
 export default DataProvider;
-
