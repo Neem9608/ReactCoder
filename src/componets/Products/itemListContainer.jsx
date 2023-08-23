@@ -42,22 +42,24 @@ const Products = () => {
   return (
     <>
       {products.map((product) => (
-        <Link to={`/book/${product.url}`} key={product.id}>
-          <div className="card">
+        <div className="card" key={product.id}>
+          <Link to={`/book/${product.url}`}>
             <img src={product.img} alt={`${product.name} book cover`} />
+          </Link>
+          
             <Description
               name={product.name}
               author={product.author}
               description={product.description}
             />
-            <p>{product.price}</p>
-
-            <button onClick={() => buyProduct(product)}>Comprar</button>
-          </div>
-        </Link>
+          
+          <p>{product.price}</p>
+          <button onClick={() => buyProduct(product)}>Comprar</button>
+        </div>
       ))}
     </>
   );
 };
+
 
 export default Products;
