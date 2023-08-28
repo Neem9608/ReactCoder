@@ -1,5 +1,5 @@
 // addProductsToFirestore.js
-import { collection, setDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
 const addProductsToFirestore = async () => {
@@ -46,7 +46,7 @@ const addProductsToFirestore = async () => {
 
   books.forEach(async (book) => {
     try {
-      await setDoc(productsRef.doc(book.url), book); // Usa el campo "url" como ID
+      await addDoc(productsRef.add(book.url), book); // Usa el campo "url" como ID
       console.log("Added/updated product: ", book.name);
     } catch (error) {
       console.error("Error adding/updating product: ", error);

@@ -15,7 +15,7 @@ import {
 import Swal from "sweetalert2";
 import "./CartContent.css";
 
-const Checkout = () => {
+const CartContent = () => {
   const { cart, setCart } = useContext(dataContext);
   const [formData, setFormData] = useState({
     shippingAddress: "",
@@ -149,4 +149,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default CartContent;

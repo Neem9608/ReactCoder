@@ -15,11 +15,12 @@ export const DataProvider = ({ children }) => {
 
     // Usa una función de actualización para asegurar que las actualizaciones sean correctas
     setCart((currentCart) => {
-      const productInCart = currentCart.find((item) => item.id === product.id);
+      const productInCart = currentCart.find((item) => item.url === product.url);
+      
       if (productInCart) {
         // Actualizar cantidad si ya está en el carrito
         return currentCart.map((item) =>
-          item.id === product.id
+          item.url === product.url
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
